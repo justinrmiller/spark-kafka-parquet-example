@@ -18,6 +18,7 @@ libraryDependencies ++= Seq(
   "com.typesafe"      % "config"                          % "1.3.0",
   "ch.qos.logback"    % "logback-classic"                 % "1.1.3",
   "org.apache.spark"  % "spark-streaming_2.11"            % sparkVersion,
+  "org.apache.spark"  % "spark-sql_2.11"            % sparkVersion,
   "org.apache.spark"  % "spark-streaming-kafka-0-10_2.11" % sparkVersion
 )
 
@@ -32,7 +33,7 @@ val myAssemblySettings = Seq(
 
 lazy val commonSettings = Seq(
   organization := "com.justinrmiller",
-  scalaVersion := "2.11.8",
+  scalaVersion := "2.11.11",
   test in assembly := {},
   fork in run := true
 )
