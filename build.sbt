@@ -12,7 +12,7 @@ resolvers ++= Seq(
   "eaio.com" at "http://eaio.com/maven2"
 )
 
-val sparkVersion = "2.1.0"
+val sparkVersion = "2.4.1"
 
 libraryDependencies ++= Seq(
   "com.typesafe"      % "config"                          % "1.3.0",
@@ -25,8 +25,8 @@ libraryDependencies ++= Seq(
 val myAssemblySettings = Seq(
   assemblyMergeStrategy in assembly <<= (mergeStrategy in assembly) { (old) =>
     {
-      case n if n.startsWith("META-INF/MANIFEST.MF") => MergeStrategy.discard
-      case _ => MergeStrategy.first
+      case PathList("META-INF", xs@_*) => MergeStrategy.discard
+      case _ => MergeStrategy.last
     }
   }
 )
@@ -43,7 +43,7 @@ lazy val app = (project in file(".")).
   settings(myAssemblySettings: _*).
   settings(
     mainClass in assembly := Some("com.justinrmiller.sparkstreamingexample.Main")
-)
+  )
 
 artifact in (Compile, assembly) := {
   val art = (artifact in (Compile, assembly)).value
