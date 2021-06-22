@@ -6,17 +6,10 @@ import org.apache.spark.sql.types.{DoubleType, LongType, StringType, StructType}
 import org.apache.spark.streaming._
 
 /**
-  * Created by justin on 6/21/17.
+  * Created by Justin Miller on 6/21/17.
   *
   * Example JSON:
-  *   {
-  *     "version":1,
-  *     "station_name": "bobs_station",
-  *     "timestamp": 1498114976232,
-  *     "data":{
-  *       "temperature": 12
-  *     }
-  *   }
+      { "version": 1, "station_name": "bobs_station", "timestamp": 1498114976232, "data": {"temperature": 12.0} }
   */
 class WeatherScribe[K](sparkConf: SparkConf, kafkaParams: Map[String, Object])
   extends BaseScribe[K](sparkConf, kafkaParams) {

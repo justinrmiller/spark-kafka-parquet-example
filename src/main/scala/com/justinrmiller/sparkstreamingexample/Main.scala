@@ -32,7 +32,6 @@ object Main {
 
     args.foreach(println(_))
 
-    // Create context with 2 second batch interval
     val sparkConf = new SparkConf().setAppName("Main").setMaster("local[4]")
 
     val kafkaParams = generateKafkaParams(brokers)

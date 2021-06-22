@@ -15,7 +15,7 @@ import org.apache.spark.streaming.kafka010.ConsumerStrategies.Subscribe
 import org.apache.spark.sql.{DataFrame, SQLContext, SaveMode, SparkSession}
 
 /**
-  * Created by justin on 6/21/17.
+  * Created by Justin Miller on 6/21/17.
   */
 abstract class BaseScribe[K](sparkConf: SparkConf, kafkaParams: Map[String, Object]) {
   def batchDuration: Duration
